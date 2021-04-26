@@ -10,7 +10,9 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.concurrent.ExecutorService;
+import java.util.stream.Collectors;
 
 public final class WikipediaAnalyzer extends VBox {
 
@@ -58,14 +60,10 @@ public final class WikipediaAnalyzer extends VBox {
     private void runQuery(String articleTitle) {
         try {
             QueryResponse response = engine.queryRevisions(articleTitle);
+            List<Revision> revisions = response.revisions();
             RevisionFormatter formatter = new RevisionFormatter();
-            StringBuilder stringBuilder = new StringBuilder();
-            for (Revision revision : response.revisions()) {
-                String message = formatter.format(revision);
-                stringBuilder.append(message);
-                stringBuilder.append("\n");
-            }
-            outputArea.setText(stringBuilder.toString());
+            String result = revisions.stream().map(formatter::format).collect(Collectors.joining("\n"));
+            outputArea.setText(result);
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Connection Problem");

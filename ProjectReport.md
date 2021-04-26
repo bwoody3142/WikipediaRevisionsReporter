@@ -1,6 +1,6 @@
 # Project Report
 
-(Put your name here)
+Bryce Woody
 
 ## Markdown Tips
 
@@ -16,27 +16,25 @@ Please remove this subsection before submitting your report.
 
 ## Challenge #1 Complete
 
-(Explain your solution to Challenge #1. If it is not complete, change
-the subsection title above to "Incomplete" and explain how far you got
-and where you got stuck.)
+This challenge was pretty simple and straight forward. In the Guice configuration, 
+I changed the `FakeQueryEngine` on line 13 to `WikipediaQueryEngine` so that we would 
+actually be utilizing the Wiki API for queries.  
 
-## Challenge #2 Complete
+## Challenge #2 Incomplete
 
-(Explain your solution to Challenge #2. If it is not complete, change
-the subsection title above to "Incomplete" and explain how far you got
-and where you got stuck.)
+I modified the Revision Formatter to read more like natural english. 
+I also changed the type of the date/time format to also make that more readable as well. 
+That was pretty simple, but I couldn't really figure out how to use Guice to inject a dependency, 
+actually at runtime. 
 
 ## Challenge #3 Complete
 
-(Explain your solution to Challenge #3. If it is not complete, change
-the subsection title above to "Incomplete" and explain how far you got
-and where you got stuck.)
+For this I used `stream()` to method chain along with `forEach()` so that I could refactor the for loop
+down to just one line. 
 
 ## Reflection Question #1: Functional vs OO
 
-(Write one or more paragraphs comparing and contrasting the iterative and functional  
-approaches to string concatenation you explored in challenge #3. Which do you
-prefer, and why?)
+These twos approaches look pretty similar on the surface since theyre both looping though 
 
 ## Reflection Question #2: Polymorphism and Dependency Inversion
 
